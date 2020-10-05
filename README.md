@@ -40,11 +40,6 @@ Change into directory Website where the Django application is
 cd Website/
 ```
 
-Create Admin Superuser, specifiying a username, email, and a password. 
-```bash
- python manage.py createsuperuser 
-```
-
 Create the migrations
 ```bash
 python manage.py makemigrations
@@ -53,6 +48,11 @@ python manage.py makemigrations
 Apply the migrations
 ```bash
 python manage.py migrate
+```
+
+Create Admin Superuser, specifiying a username, email, and a password. 
+```bash
+ python manage.py createsuperuser 
 ```
 
 Start the web server
