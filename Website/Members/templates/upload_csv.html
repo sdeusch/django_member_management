@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Member File Upload</h2>
+
+ <div>
+  <p>
+    Must be comma-separated (CSV format, UTF-8 encoded):
+  </p>
+   <p>
+    <em>ID, first-name, last-name, phone-number, client-member-Id, account-ID</em>
+  </p>
+   </div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="document">
+    <button type="submit">Upload file</button>
+  </form>
+  {% if url %}
+    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+  {% endif %}
+{% endblock %}

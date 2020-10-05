@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <table>
+        <thead></thead>
+        <tbody>
+        <tr>
+            <th>First Name</th>
+            <td>{{member.first_name}}</td>
+        </tr>
+        <tr>
+            <th> Last Name</th>
+            <td> {{member.last_name}}</td>
+        </tr>
+        <tr>
+            <th> Phone Number</th>
+            <td> {{member.phone_number}} </td>
+        </tr>
+        <tr>
+            <th> Client Member ID </th>
+            <td> {{member.client_member_id}} </td>
+        </tr>
+        <tr>
+            <th>Member of Account</th>
+            <td>
+                <ul class="no-bullets">
+                  {% for ac in accounts %}
+                  <li ><a href="/?account_id={{ac.account_id}}">{{ac.account_id}}</a></li>
+                  {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr><th><hr></th></tr>
+        <tr>
+            <th>
+                <form action="/delete/{{member.id}}/" method="post">
+                    {% csrf_token %}
+                    <input class="danger" type="submit" value="Delete Member">
+                </form>
+            </th>
+            <td> </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+{% endblock %}
